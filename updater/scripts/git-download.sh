@@ -2,12 +2,23 @@
 #
 # Calculate download traffic per day
 #
+# Filter by a specific repository if $REPOSITORY is defined or replaced
+REPO_NAME="$REPOSITORY"
+
+if [ -n "$REPO_NAME" ]; then
+    # Escape forward slash
+    REPO_NAME="${REPO_NAME/\//\\/}"
+
+    REPO_NAME_FIELD="\"repo_name\":\"($REPO_NAME)\".*"
+else
+    REPO_NAME_FIELD='"repo_name":"([^"]+).*'
+fi
 
 printf -v EXTRACT_FIELDS "%s"               \
     'print if s/.*'                         \
         '"cloning":([^,]+).*'               \
         '"program":"upload-pack".*'         \
-        '"repo_name":"([^"]+).*'            \
+        $REPO_NAME_FIELD \
         '"uploaded_bytes":([^,]+).*'        \
         '"user_login":"([^"]+).*'           \
     '/\2\t\4\t\1\t\3/'
