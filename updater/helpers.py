@@ -45,4 +45,4 @@ def prepareDataDirectory(dataDirectory, fetchChanges = True):
 			executeCommand(["git", "clone", configuration["repositoryURL"], "."], cwd = dataDirectory)
 		else:
 			executeCommand(["git", "fetch"], cwd = dataDirectory)
-			executeCommand(["git", "reset", "--hard", "origin/master"], cwd = dataDirectory)
+			executeCommand(["git", "reset", "--hard", "origin/main"], cwd = dataDirectory) # appatalks
