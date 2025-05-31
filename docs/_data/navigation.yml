@@ -31,6 +31,8 @@
       url: "/repos-total"
     - title: "Size"
       url: "/repos-size"
+    - title: "Monitored"
+      url: "/repos-monitored"      
 - title: "Organizations"
   url: "/orgs-activity"
   subnavigation:
