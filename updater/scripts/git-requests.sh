@@ -4,7 +4,9 @@
 #
 echo -e "repository\tsource IP\trequests"
 
-zcat -f /var/log/syslog.1* |
+TMPDIR=`mktemp -d`
+sudo cp -a /var/log/babeld/babeld.log.1.gz $TMPDIR
+zcat -f $TMPDIR/babeld.log.1.gz |
 	# Remove the leading time stamp
 	cut --characters 17- |
 	# Remove the host name
@@ -16,3 +18,5 @@ zcat -f /var/log/syslog.1* |
 	uniq -ic |
 	sort -rn |
 	awk '{printf("%s\t%s\t%s\n",$3,$2,$1)}'
+sudo rm -f $TMPDIR/babeld.log.1.gz
+rmdir $TMPDIR

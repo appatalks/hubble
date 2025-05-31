@@ -5,6 +5,8 @@
       url: "/"
     - title: "Contributors"
       url: "/users-contributors"
+    - title: "Issues & Comments"
+      url: "/users-communication"  
     - title: "Activity"
       url: "/users-activity"
     - title: "Git Versions"
@@ -29,6 +31,8 @@
       url: "/repos-total"
     - title: "Size"
       url: "/repos-size"
+    - title: "Monitored"
+      url: "/repos-monitored"      
 - title: "Organizations"
   url: "/orgs-activity"
   subnavigation:
@@ -55,8 +59,13 @@
       url: "/housekeeping-repo-location"
     - title: "Forks"
       url: "/housekeeping-forks"
-    - title: "Failed Webhooks"
-      url: "/housekeeping-failed-webhooks"
+- title: "Failures"
+  url: "/failures-failed-authentication"
+  subnavigation:
+    - title: "Authentication"
+      url: "/failures-failed-authentication"
+    - title: "Webhooks"
+      url: "/failures-failed-webhooks"
 - title: "Recommendations"
   url: "/recommendations-tokenless-auth"
   subnavigation:
